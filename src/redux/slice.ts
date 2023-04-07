@@ -1,45 +1,23 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-// import { selectLoginResult } from 'app/redux/user/slice/selector';
-// import { PostDTO, RTKQStateDTO } from "shared/dto/post.dto";
-import { LoginBodyRO, UserRO } from 'shared/interface/user.interface';
+// import { selectLoginResult } from 'redux/selector/user.selector';
+import { User } from "shared/entity/User";
 
 export const coreSliceApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000",
-    // prepareHeaders: (headers, { getState }) => {
-    //     const token = selectLoginResult;
-    //     console.log(`token: `, token);
-
-    //     return { ...headers, 'Content-Type': 'application/json' };
-    // },
+    baseUrl: import.meta.env.REACT_APP_API_FQDN,
   }),
-  // tagTypes: ["Posts", "Users", "Events"],
+  // tagTypes: ["User"],
   endpoints: (builder) => ({
-    // getPosts: builder.query<Array<PostDTO>, void>({
-    //   query: () => "/articles",
-    //   // providesTags: ["Post"],
-    //   transformResponse(rawResult: RTKQStateDTO<PostDTO>, meta, arg) {
-    //     return rawResult.list;
-    //   },
-    //   providesTags: (result) => {
-    //     return result
-    //       ? [
-    //           ...result.map(({ id }) => ({ type: "Posts" as const, id })),
-    //           { type: "Posts", id: "LIST" },
-    //         ]
-    //       : [{ type: "Posts", id: "LIST" }];
-    //   },
-    // }),
     login: builder.mutation({
-        query: (accountLogin: LoginBodyRO) => ({
-            url: '/users/login',
-            method: 'POST',
-            body: accountLogin,
-        }),
-        transformResponse(rawResult: UserRO, meta, arg) {
-            return rawResult;
-        },
+      query: (accountLogin: LoginBodyRO) => ({
+        url: '/users/login',
+        method: 'POST',
+        body: accountLogin,
+      }),
+      transformResponse(rawResult: UserRO, meta, arg) {
+        return rawResult;
+      },
     }),
   }),
   // endpoints: () => ({}),
