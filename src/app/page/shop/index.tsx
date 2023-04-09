@@ -1,8 +1,8 @@
 import React from "react";
-import { IShopPage } from "shared/interface/shop/shop.interface";
-import { BaseComponent } from "template/base-component.core";
+import { IShopPage } from "@lxb/shared/interface/shop/shop.interface";
+import { BaseComponent } from "@lxb/template/base/base-component.core";
 import ShopModel from "./shop.model";
-import ShopComponent from "app/component/shop";
+import ShopComponent from "@lxb/app/component/shop";
 
 class ShopPage extends BaseComponent({
   model: new ShopModel(),

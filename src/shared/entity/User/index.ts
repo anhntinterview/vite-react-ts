@@ -10,7 +10,7 @@ import { Order } from "./Order";
 import { Avatar } from "./Avatar";
 
 @Exclude()
-export class User {
+export class UserEntity {
     @Expose()
     avatar!: Avatar
 

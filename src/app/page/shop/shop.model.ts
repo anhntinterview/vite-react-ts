@@ -1,8 +1,7 @@
 import { Container } from "typedi";
 
 class ShopModel {
-    constructor() { }
-
+    constructor() {}
 }
 
-export default ShopModel
+export default ShopModel;

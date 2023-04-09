@@ -3,7 +3,11 @@
     "target": "ESNext",
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -16,11 +20,23 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "/*": ["./src/*"]
+      "@lxb/*": [
+        "./src/*"
+      ]
     }
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "/*": ["./src/*"]
+    // }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
